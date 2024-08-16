@@ -42,6 +42,18 @@ let quiz = [
     }
 ];
 
+// welcome message
+
+alert("Welcome to the JavaScript Quiz!");
+
+// Ask the user if they want to start the quiz
+
+let startQuiz = prompt("Do you want to start the quiz? (yes/no)");
+
+// If the user wants to start the quiz, continue
+
+
+while (startQuiz.toLowerCase() === "yes") {
 // Initialize score
 let score = 0;
 
@@ -61,3 +73,28 @@ for (let i = 0; i < quiz.length; i++) {
 
 // Show the final score
 alert("You scored " + score + " out of " + quiz.length + "!");
+
+// Ask if the user wants to play again
+
+let playAgain = prompt("Do you want to play again? (yes/no)");
+}
+
+// Repeat the quiz if the user wants to
+
+while (playAgain.toLowerCase() === "yes") {
+    score = 0;
+
+    for (let i = 0; i < quiz.length; i++) {
+        let userAnswer = prompt(quiz[i].question);
+
+        if (userAnswer.toLowerCase() === quiz[i].answer.toLowerCase()) {
+            score++;
+        } else {
+            alert("Wrong! The correct answer is " + quiz[i].answer);
+        }
+    }
+
+    alert("You scored " + score + " out of " + quiz.length + "!");
+
+    playAgain = prompt("Do you want to play again? (yes/no)");
+}
